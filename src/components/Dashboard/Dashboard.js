@@ -15,7 +15,8 @@ render(){
             Dashboard
             {this.props.inventory.map((item, i) => {
                 return <Product
-                key={i} product={item}/>
+                key={i} product={item}
+                deleteProduct={this.props.deleteProduct}/>
                 
             })}
         </div>

@@ -6,6 +6,11 @@ class Product extends Component{
         
     }
 
+    handleDeleteClick = () => {
+        this.props.deleteProduct(this.state.id)
+    }
+
+
 render(){
     return(
         <div>
@@ -13,6 +18,7 @@ render(){
             <img src={this.props.product.product_img} alt='' height='200' width='200'/>
             {this.props.product.product_name}
             {this.props.product.product_price}
+            <button onClick={this.handleDeleteClick}>Delete</button>
         </div>
     )
 }

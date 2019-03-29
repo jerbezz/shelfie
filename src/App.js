@@ -13,6 +13,28 @@ class App extends Component {
     }
   }
 
+  deleteProduct = id => {
+    axios.delete(`/api/inventory/${id}`).then( res => {
+        this.setState({
+            products: res.data
+        })
+    }).catch(err => {
+        console.log('delete error', err)
+    })
+}
+
+
+  handleCreateProduct = product => {
+    axios.post('/api/inventory', product).then( res => {
+      console.log(2222, res.data)
+      this.setState({
+        products: res.data
+      })
+    }).catch(err => {
+      console.log('adding error', err)
+    })
+  }
+
   componentDidMount(){
     axios.get('/api/inventory').then(res => {
       console.log(11111,res.data)
@@ -29,8 +51,8 @@ class App extends Component {
       <div className="App">
        <Header/>
         <div>
-        <Dashboard inventory={this.state.products}/>
-        <Form/>
+        <Dashboard inventory={this.state.products} deleteProduct={this.deleteProduct}/>
+        <Form handleCreateProduct={this.handleCreateProduct}/>
         </div>
       </div>
     );
