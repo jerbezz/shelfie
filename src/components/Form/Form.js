@@ -3,13 +3,37 @@ import React, {Component} from 'react'
 class Form extends Component{
     constructor(){
         super()
-        
+        this.state = {
+            product_img: '',
+            product_name: '',
+            product_price: ''
+        }  
     }
+
+    handleChange = e => {
+        let {name, value} = e.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleCancel = () => {
+        this.setState({
+            product_img: '',
+            product_name: '',
+            product_price: ''
+        })
+    }
+
 
 render(){
     return(
         <div>
-            Form
+            <input name='product_img' value={this.state.product_img} onChange={this.handleChange}></input>
+            <input name='product_name' value={this.state.product_name} onChange={this.handleChange}></input>
+            <input name='product_price' value={this.state.product_price} onChange={this.handleChange}></input>
+            <button onClick={this.handleCancel}>Cancel</button>
+            <button>Add to Inventory</button>
         </div>
     )
 }
