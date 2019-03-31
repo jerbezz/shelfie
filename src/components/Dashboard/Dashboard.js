@@ -8,6 +8,8 @@ class Dashboard extends Component{
     }
 
 render(){
+    console.log(this.props.inventory)
+    console.log(this.props,"---------------dashaboard")
     
     
     return(
@@ -15,8 +17,8 @@ render(){
             Dashboard
             {this.props.inventory.map((item, i) => {
                 return <Product
-                key={i} product={item}
-                deleteProduct={this.props.deleteProduct}/>
+                key={i} product={item} id={item.id}
+                     handleDeleteClick={this.props.handleDeleteClick} handleUpdateClick={this.props.handleUpdateClick} />
                 
             })}
         </div>

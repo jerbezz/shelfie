@@ -6,4 +6,5 @@ product_img
     $1,
     $2,
     $3
-);
+)
+returning *;

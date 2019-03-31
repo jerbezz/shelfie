@@ -16,9 +16,10 @@ massive(CONNECTION_STRING).then((db) => {
     console.log(db.listTables())
 })
 
+app.delete('/api/inventory/:id', controller.delete)
 app.get('/api/inventory', controller.getAll)
 app.post('/api/inventory', controller.create)
-app.delete('/api/inventory/:id', controller.delete)
+app.put('/api/inventory/:id', controller.update)
 
 
 
